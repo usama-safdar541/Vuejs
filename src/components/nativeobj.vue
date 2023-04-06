@@ -1,3 +1,4 @@
+
 <template>
     <div>
         <!-- <input type="text" v-bind:value="name" v-on:input="setName($event, 'Safdar') " v-on:keyup.enter="enteredInput"> -->
@@ -6,7 +7,8 @@
 <button type="submit" v-on:click="setName" >Click</button> -->
         <p>Your Name:{{ fullname }}</p>
         <button v-on:click="resetInput"></button>
-    </div>
+
+   </div>
 </template>
 
 <script>
@@ -15,9 +17,14 @@
 export default {
     data() {
         return {
-            enteredvalue1: "",
-            name: "",
-            fullname: '',
+            // enteredvalue1: "",
+            // name: "",
+            // fullname: '',
+
+            boxASelected:false,
+            boxBSelected:false,
+            boxCSelected:false,
+            lastname:''
       // age:26
     };
     },
@@ -31,23 +38,37 @@ export default {
     //     },
     //   },
 
-    watch: {
-        name(values) {
-            if (values === '') {
-                this.fullname = '';
-            } else {
-                this.fullname = values + '' + this.lastname;
-            }
-        },
-        lastname(values) {
-            if (values === '') {
-                this.fullname = '';
-            } else {
-                this.fullname = this.name + '' + values;
-            }
-        }
-    },
+    // watch: {
+    //     name(values) {
+    //         if (values === '') {
+    //             this.fullname = '';
+    //         } else {
+    //             this.fullname = values + '' + this.lastname;
+    //         }
+    //     },
+    //     lastname(values) {
+    //         if (values === '') {
+    //             this.fullname = '';
+    //         } else {
+    //             this.fullname = this.name + '' + values;
+    //         }
+    //     }
+    // },
     methods: {
+
+// changeColors(box){
+//     if(box==='A'){
+// this.boxASelected=true;
+
+//     }else if(box==='B'){
+//         this.boxBSelected= true;
+//     }
+//     else if(box==='C'){
+//         this.boxCSelected=true;
+//     }
+
+// },
+
         enteredInput() {
             this.enteredvalue1 = this.name;
         },
@@ -59,10 +80,12 @@ export default {
             this.name = event.target.value;
         },
 
-        // setName(){
-        //     this.name.push(this.enteredvalue1);
-        //     this.enteredvalue1=''
-        // }
+        setName(){
+            this.name.push(this.enteredvalue1);
+            this.enteredvalue1=''
+        }
     },
 };
 </script>
+
+
